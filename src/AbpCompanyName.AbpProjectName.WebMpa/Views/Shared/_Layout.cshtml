@@ -44,15 +44,13 @@
     @Scripts.Render("~/Bundles/js")
 
     <script>
-        //Localizing momentjs
-        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name');
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs
     </script>
 
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     <script src="~/api/AbpServiceProxies/GetAll"></script>
     <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
-
-    <script src="~/Abp/Framework/scripts/libs/abp.sweet-alert.js"></script>
 
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
